@@ -10,6 +10,10 @@ using Users.Models;
 
 namespace Users.Infrastructure
 {
+    /// <summary>
+    /// 创建用户管理器类
+    /// 用户管理器类必须派生于UserManager<T>
+    /// </summary>
     public class AppUserManager : UserManager<AppUser>
     {
         public AppUserManager(IUserStore<AppUser> store) : base(store)
