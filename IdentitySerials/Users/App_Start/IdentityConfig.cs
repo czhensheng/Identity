@@ -2,6 +2,7 @@
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
+using Users.Controllers;
 using Users.Infrastructure;
 
 //[assembly: Microsoft.Owin.OwinStartup(typeof(Users.App_Start.IdentityConfig))]
@@ -15,6 +16,7 @@ namespace Users.App_Start
         {
             app.CreatePerOwinContext<AppIdentityDbContext>(AppIdentityDbContext.Create);
             app.CreatePerOwinContext<AppUserManager>(AppUserManager.Create);
+            app.CreatePerOwinContext<AppRoleManager>(AppRoleManager.Create);
             app.UseCookieAuthentication(new Microsoft.Owin.Security.Cookies.CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
