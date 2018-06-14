@@ -16,6 +16,7 @@ namespace Users.Controllers
         // GET: Admin
         public ActionResult Index()
         {
+            //UserManager.Users 返回一个用户对象的枚举(程序中AppUser类的实例)
             return View(UserManager.Users);
         }
 
@@ -140,6 +141,9 @@ namespace Users.Controllers
         {
             get
             {
+                //Microsoft.Owin.Host.SystemWeb 扩展HttpContext方法，如GetOwinContext
+                //GetOwinContext方法通过IOwinContext对象，将每次基于上下文对象的请求提供给OWIN API
+                //GetUserManager获取用户管理类的实例
                 return HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
             }
         }
